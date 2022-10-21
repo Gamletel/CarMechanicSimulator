@@ -4,6 +4,7 @@ using UnityEngine;
     {
         public GameObject car;
         public GameObject[] detailInCar;
+        
         private void Start()
         {
             car = GameObject.FindGameObjectWithTag("Car");

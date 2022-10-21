@@ -9,10 +9,12 @@ public class StartMenuController : MonoBehaviour
     [SerializeField] private GameObject loadBtn;
     [SerializeField] private GameObject loadSlider;
     [SerializeField] private Slider slider;
+    
     public void LoadNextScene(int sceneIndex)
     {
         StartCoroutine(LoadAsync(sceneIndex));
     }
+    
     private IEnumerator LoadAsync(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);

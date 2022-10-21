@@ -6,6 +6,7 @@ public class Invisible : MonoBehaviour
     [SerializeField] private MeshRenderer[] normal_obj_renderer;
     [SerializeField] private MeshRenderer[] invisible_obj_renderer;
     private bool notInvisible;
+    
     public void SetInvisible()
     {
         if (!notInvisible)
@@ -13,6 +14,7 @@ public class Invisible : MonoBehaviour
         else
             SetVisibility();
     }
+    
     private void SetInvis()
     {
         foreach (MeshRenderer item in invisible_obj_renderer)
@@ -25,6 +27,7 @@ public class Invisible : MonoBehaviour
             item.enabled = false;
         notInvisible = !notInvisible;
     }
+    
     private void SetVisibility()
     {
         foreach (MeshRenderer item in invisible_obj_renderer)

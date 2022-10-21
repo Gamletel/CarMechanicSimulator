@@ -6,6 +6,7 @@ public class InteractionForCar : MonoBehaviour
     [Header("Аниматор второй детали")]
     [SerializeField] private Animator secondAnimator;
     private Animator animator;
+    
     void Awake()
     {
         animator = GetComponent<Animator>();

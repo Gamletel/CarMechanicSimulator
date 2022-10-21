@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class lockPosition : MonoBehaviour
 {
-    [Header("Коллайдер главной модели")]
+    [Header("РљРѕР»Р»Р°Р№РґРµСЂ РіР»Р°РІРЅРѕР№ РјРѕРґРµР»Рё")]
     [SerializeField] private BoxCollider col;
-    [Header("Коллайдер деталей")]
+    [Header("РљРѕР»Р»Р°Р№РґРµСЂ РґРµС‚Р°Р»РµР№")]
     [SerializeField] private BoxCollider[] detailCol;
     [SerializeField] private bool isLocked;
+    
     public void Interact()
     {
         if (isLocked)
@@ -14,6 +15,7 @@ public class lockPosition : MonoBehaviour
         else
             LockPos();
     }
+    
     private void UnlockPos()
     {
         col.enabled = true;
@@ -22,6 +24,7 @@ public class lockPosition : MonoBehaviour
                 item.enabled = false;
         isLocked = !isLocked;
     }
+    
     private void LockPos()
     {
         col.enabled = false;

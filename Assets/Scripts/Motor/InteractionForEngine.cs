@@ -9,6 +9,7 @@ public class InteractionForEngine : MonoBehaviour
     [SerializeField] private string infoString;
     [SerializeField] private Text infoText;
     private Animator animator;
+    
     private void Start() => animator = GetComponent<Animator>();
 
     private void OnMouseDown()
@@ -17,6 +18,7 @@ public class InteractionForEngine : MonoBehaviour
         isAssembled = !isAssembled;
         animator.SetTrigger("interact");
     }
+    
     private void SetInfoText()
     {
         infoText.text = infoString;

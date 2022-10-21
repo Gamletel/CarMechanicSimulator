@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class RotationV2 : MonoBehaviour
 {
-    [Header("Скорость поворота камеры")]
+    [Header("РЎРєРѕСЂРѕСЃС‚СЊ РїРѕРІРѕСЂРѕС‚Р° РєР°РјРµСЂС‹")]
     [SerializeField] private float sensitivity = 150.0f;
     private Vector3 lastPos;
 
-    void OnMouseDown()
+    private void OnMouseDown()
     {
         lastPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
     }
 
-    void OnMouseDrag()
+    private void OnMouseDrag()
     {
         Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 

@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MotorAssembly : MonoBehaviour
 {
     [SerializeField] private GameObject[] details;
+    
     public void AssemblyEngine()
     {
         foreach (GameObject item in details)
@@ -17,6 +16,7 @@ public class MotorAssembly : MonoBehaviour
             }
         }
     }
+    
     public void DestructEngine()
     {
         foreach (GameObject item in details)

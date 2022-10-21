@@ -5,10 +5,12 @@ public class OpenPanelSettings : MonoBehaviour
 {
     private bool isComplete = false;
     private DOTweenAnimation dot;
+    
     private void Start()
     {
         dot = GetComponent<DOTweenAnimation>();
     }
+    
     public void Play()
     {
         if (!isComplete)

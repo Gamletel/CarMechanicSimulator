@@ -15,6 +15,7 @@ public class TestController : MonoBehaviour
     private float _time = 60;
     private float _timeLeft = 0.0f;
     private int x;
+    
     public void StartTest()
     {
         TaskPanel.SetActive(true);
@@ -22,36 +23,40 @@ public class TestController : MonoBehaviour
         _timeLeft = _time;
         StartCoroutine(StartTimer());
     }
+    
     private void StopTest(string text)
     {
         taskText.text = text;
     }
+    
     public void NextTask()
     {
         DeleteCurDetail();
         RandomizeTask();
     }
+    
     private void RandomizeTask()
     {
         if (detailNames.Count==0 && _timeLeft != 0)
         {
-            StopTest($"�� ������� ������ ����! ����� �����������: {Math.Round(_time - _timeLeft, 1)}");
+            StopTest($"Ты отлично справился! Время прохождения: {Math.Round(_time - _timeLeft, 1)}");
             StopAllCoroutines();
         }
-            
         else
         {
             x = UnityEngine.Random.Range(0, detailNames.Count);
-            taskText.text = $"�������� ��� ���������: {detailNames[x]}";
+            taskText.text = $"Найди деталь: {detailNames[x]}";
             _detail = GameObject.Find($"{detailNames[x]}");
             _detail.AddComponent<CorrectDetail>();
         }
         
     }
+    
     private void DeleteCurDetail()
     {
         detailNames.Remove(detailNames[x]);
     }
+    
     private IEnumerator StartTimer()
     {
         while (_timeLeft != 0)
@@ -61,9 +66,10 @@ public class TestController : MonoBehaviour
             timerImg.fillAmount = normalizedValue;
             yield return null;
         }
+        
         if (_timeLeft == 0)
         {
-            StopTest($"����� �����! ��������� �����: {score} �� {detailNames.Count}");
+            StopTest($"Время вышло! Количество очков: {score} из {detailNames.Count}");
             foreach (string item in detailNames)
             {
                 detailNames.Remove(item);

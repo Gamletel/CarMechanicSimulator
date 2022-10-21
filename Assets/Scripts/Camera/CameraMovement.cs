@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [Header("Аниматор активного объекта (можно оставить пустым)")]
+    [Header("РђРЅРёРјР°С‚РѕСЂ Р°РєС‚РёРІРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° (РјРѕР¶РЅРѕ РѕСЃС‚Р°РІРёС‚СЊ РїСѓСЃС‚С‹Рј)")]
     [SerializeField] private Animator objAnimator;
-    [Header("Название триггера для анимации камеры")]
+    [Header("РќР°Р·РІР°РЅРёРµ С‚СЂРёРіРіРµСЂР° РґР»СЏ Р°РЅРёРјР°С†РёРё РєР°РјРµСЂС‹")]
     [SerializeField] private string triggerName;
     private Camera cam;
     private Animator camAnimator;
+    
     void Start()
     {
         cam = Camera.main;

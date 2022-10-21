@@ -3,28 +3,32 @@ using UnityEngine;
 public class Rotation : MonoBehaviour
 {
     private bool isRotate = false;
-    void Update()
+    
+    private void Update()
     {
         if (isRotate)
             Rotate();
     }
+    
     private void OnMouseDown()
     {
         isRotate = true;
     }
+    
     private void OnMouseUp()
     {
         isRotate = false;
     }
+    
     private void Rotate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // поле зрение камеры
-        RaycastHit hit = new RaycastHit(); // хранит данные объекта с котором пересекся вектор камеры и параметры пересечения
-        if (Physics.Raycast(ray, out hit)) // выполняется если хоть один объект встретился
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // РїРѕР»Рµ Р·СЂРµРЅРёРµ РєР°РјРµСЂС‹
+        RaycastHit hit = new RaycastHit(); // С…СЂР°РЅРёС‚ РґР°РЅРЅС‹Рµ РѕР±СЉРµРєС‚Р° СЃ РєРѕС‚РѕСЂРѕРј РїРµСЂРµСЃРµРєСЃСЏ РІРµРєС‚РѕСЂ РєР°РјРµСЂС‹ Рё РїР°СЂР°РјРµС‚СЂС‹ РїРµСЂРµСЃРµС‡РµРЅРёСЏ
+        if (Physics.Raycast(ray, out hit)) // РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РµСЃР»Рё С…РѕС‚СЊ РѕРґРёРЅ РѕР±СЉРµРєС‚ РІСЃС‚СЂРµС‚РёР»СЃСЏ
         {
-            Vector3 rot = transform.eulerAngles; // запись предыдущего угла Эйлера "Rotation"
-            transform.LookAt(hit.point); // перевод в угол поворота из полученных координат при пересечении с объектом
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0); // установка нового угла
+            Vector3 rot = transform.eulerAngles; // Р·Р°РїРёСЃСЊ РїСЂРµРґС‹РґСѓС‰РµРіРѕ СѓРіР»Р° Р­Р№Р»РµСЂР°
+            transform.LookAt(hit.point); // РїРµСЂРµРІРѕРґ РІ СѓРіРѕР» РїРѕРІРѕСЂРѕС‚Р° РёР· РїРѕР»СѓС‡РµРЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚ РїСЂРё РїРµСЂРµСЃРµС‡РµРЅРёРё СЃ РѕР±СЉРµРєС‚РѕРј
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0); // СѓСЃС‚Р°РЅРѕРІРєР° РЅРѕРІРѕРіРѕ СѓРіР»Р°
         }
     }
 }
